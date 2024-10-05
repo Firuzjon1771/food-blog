@@ -1,0 +1,150 @@
+/* Ensure body is scrollable */
+
+/* Left-side navigation menu */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+  color: white;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 10px 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+/* Main content */
+.main-content {
+  margin-left: 220px; /* To account for the left-side navigation */
+  margin-right: 320px; /* To account for the right-side sidebar */
+  padding: 20px;
+}
+
+/* Gallery Section */
+.gallery {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.gallery-item {
+  width: 150px;
+  height: 100px;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+/* Description Section */
+.description {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.text-content {
+  flex: 1;
+}
+
+.image-content img {
+  width: 300px;
+  height: auto;
+}
+
+/* Presentation Blog with tree root-like structure */
+.presentation-blog {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  position: relative;
+  padding-left: 30px; /* Space for left-side connection */
+}
+
+.presentation-blog::before {
+  content: "";
+  position: absolute;
+  left: 50%; /* Center line for the "root" */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #333; /* The central "root" line */
+}
+
+.blog-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  width: 50%;
+}
+
+.blog-item.left {
+  justify-content: flex-end; /* Aligns content to the right */
+}
+
+.blog-item.right {
+  justify-content: flex-start; /* Aligns content to the left */
+  left: 50%;
+}
+
+/* Connecting lines for left and right items */
+.blog-item.left::before,
+.blog-item.right::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 2px;
+  background-color: #333;
+}
+
+.blog-item.left::before {
+  right: -20px; /* Connects to the central root on the right */
+}
+
+.blog-item.right::before {
+  left: -20px; /* Connects to the central root on the left */
+}
+
+.blog-item img {
+  width: 150px;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.blog-details h3 {
+  margin: 0;
+}
+
+.blog-details p {
+  margin: 5px 0;
+}
